@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/PaesslerAG/gval"
-	"github.com/PaesslerAG/jsonpath"
+	"github.com/jangoo/gval"
+	"github.com/jangoo/jsonpath"
 )
 
 func ExampleEvaluate_basic() {
