@@ -60,7 +60,20 @@ func (e Evaluable) EvalString(c context.Context, parameter interface{}) (string,
 	if err != nil {
 		return "", err
 	}
-	return fmt.Sprintf("%v", o), nil
+	switch o.(type) {
+		case float64: {
+			var float = o.(float64)
+			var str string
+			if float == float64(int64(float)) {
+				str = strconv.FormatFloat(float, 'f', 0, 64)
+			} else {
+				str = strconv.FormatFloat(float, 'f', 2, 64)
+			}
+			return str, nil
+		}
+		default:
+			return fmt.Sprintf("%v", o), nil
+	}
 }
 
 //Const Evaluable represents given constant
